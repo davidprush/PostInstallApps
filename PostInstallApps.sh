@@ -4,12 +4,12 @@
 # zgrep "Commandline: apt install" /var/log/apt/history.log /var/log/apt/history.log.*.gz
 
 # List Apps to install here
-APPS_INSTALL = 'htop nano inxi powertop powerline solaar android-tools-adb android-tools-fastboot python-pip git python3-pip npm nodejs pylint ctags screenfetch youtube-dl tlp weechat gtkhash gparted gcc make'
+APPS_INSTALL='htop nano inxi powertop powerline solaar android-tools-adb android-tools-fastboot python-pip git python3-pip npm nodejs pylint ctags screenfetch youtube-dl tlp weechat gtkhash gparted gcc make'
 
 echo "Current system..."
 uname -a    # Display system information
 echo "This will install the following apps:"
-echo $APPS_INSTALL
+echo $APPS_INSTALL | tr " " "\n"
 echo "Also, a repo will be added for Chrome & VSCode."
 echo -n "Press ENTER to continue or Ctrl-x to quit."
 echo ""
