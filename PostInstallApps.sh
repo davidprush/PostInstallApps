@@ -12,6 +12,8 @@ echo "This will install the following apps:"
 echo $APPS_INSTALL | tr " " "\n"
 echo "Also, a repo will be added for Chrome & VSCode."
 echo -n "Press ENTER to continue or Ctrl-x to quit."
+read
+echo ""
 echo ""
 
 # Update system
@@ -61,3 +63,6 @@ else
     echo "fi" >> $HOME/.bashrc
     echo "Updated .bashrc for powerline, restart terminal or enter bash command."
 fi
+
+echo ""
+echo ""
