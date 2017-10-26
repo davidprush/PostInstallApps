@@ -21,7 +21,7 @@ sudo apt upgrade -y
 echo "Install the apps..."
 
 # Install Apps
-sudo apt install $APPS -y
+sudo apt install $APPS_INSTALL -y
 
 # Get Signing Key for Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
@@ -33,9 +33,10 @@ sudo sh -c "echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /e
 sudo apt-get update
 sudo apt-get install google-chrome-stable
 
-# Get gpg key for VSCode 
+# Get gpg keys for VSCode 
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EB3E94ADBE1229CF
 
 # Add Microsoft VSCode Repo to sources.list.d
 sudo sh -c "echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list"
