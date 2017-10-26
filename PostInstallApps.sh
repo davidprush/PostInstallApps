@@ -4,7 +4,7 @@
 # zgrep "Commandline: apt install" /var/log/apt/history.log /var/log/apt/history.log.*.gz
 
 # List Apps to install here
-APPS_INSTALL='htop nano inxi powertop powerline solaar android-tools-adb android-tools-fastboot python-pip git python3-pip npm nodejs pylint ctags screenfetch youtube-dl tlp weechat gtkhash gparted gcc make'
+APPS_INSTALL='top nano inxi powertop powerline solaar android-tools-adb android-tools-fastboot python-pip git python3-pip npm nodejs pylint ctags screenfetch youtube-dl tlp weechat gtkhash gparted gcc makeh'
 
 echo "Current system..."
 uname -a    # Display system information
