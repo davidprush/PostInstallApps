@@ -1,17 +1,34 @@
 #!/bin/bash
 # System Requirement: Ubuntu
+# I have lots of plans for this script:
+#   1.  Ability to install apps by preselected groups
+#   2.  Automatically Check for Chrome & VSCode
+#   3.  Maybe option to remove & reinstall 
 # Display manually installed apps
 # zgrep "Commandline: apt install" /var/log/apt/history.log /var/log/apt/history.log.*.gz
 
 # List Apps to install here
-APPS_INSTALL='top nano inxi powertop powerline solaar android-tools-adb android-tools-fastboot python-pip git python3-pip npm nodejs pylint ctags screenfetch youtube-dl tlp weechat gtkhash gparted gcc makeh'
+ESSENTIAL_APPS='htop nano inxi powertop powerline solaar tlp gparted screenfetch youtube-dl'
+DEVELOPER_APPS='android-tools-adb android-tools-fastboot git npm nodejs ctags gcc make'
+PYTHON_APPS='python-pip pylint python-appindicator python-dbus python-dev python-gconf' 
+PYTHON2_APPS='python-keybinder python-notify python-vte python-xdg'
+PYTHON3_APPS='python3 python3-pip python3-dev'
+EXTRA_APPS='weechat gtkhash notify-os'
+INSPACE=' '
+
+# Combine all app vars
+APPS_INSTALL=$ESSENTIAL_APPS$INSPACE$DEVELOPER_APPS
+APPS_INSTALL=$APPS_INSTALL$INSPACE$PYTHON_APPS
+APPS_INSTALL=$APPS_INSTALL$INSPACE$PYTHON2_APPS
+APPS_INSTALL=$APPS_INSTALL$INSPACE$PYTHON3_APPS
+APPS_INSTALL=$APPS_INSTALL$INSPACE$EXTRA_APPS
 
 echo "Current system..."
 uname -a    # Display system information
 echo "This will install the following apps:"
 echo $APPS_INSTALL | tr " " "\n"
 echo "Also, a repo will be added for Chrome & VSCode."
-echo -n "Press ENTER to continue or Ctrl-x to quit."
+echo -n "Press ENTER to continue or Ctrl-c to quit."
 read
 echo ""
 echo ""
